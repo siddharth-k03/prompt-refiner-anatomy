@@ -8,17 +8,17 @@
     "circulatory": {
       "description": "heart and blood vessels that move blood through the body",
       "organs": ["heart", "arteries", "veins", "blood vessels", "aorta", "ventricles", "atria"],
-      "structures": ["circulation", "cardiovascular", "pulse"]
+      "structures": ["circulatory system"]
     },
     "respiratory": {
       "description": "lungs and airways that help us breathe",
-      "organs": ["lungs", "trachea", "bronchi", "diaphragm", "nose", "alveoli", "windpipe"],
-      "structures": ["respiratory", "airways"]
+      "organs": ["lungs", "trachea", "bronchi", "diaphragm", "nose", "alveoli", "windpipe", "airways"],
+      "structures": ["respiratory system"]
     },
     "nervous": {
       "description": "brain and nerves that control the body",
       "organs": ["brain", "spinal cord", "nerves", "neurons", "cerebrum", "cerebellum", "brainstem"],
-      "structures": ["nervous system", "neural", "spinal"]
+      "structures": ["nervous system", "neural network"]
     },
     "digestive": {
       "description": "organs that break down food for energy",
