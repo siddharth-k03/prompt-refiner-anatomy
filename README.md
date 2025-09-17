@@ -1,6 +1,6 @@
 # Prompt Refiner for Anatomical Education
 
-A plug-and-play Python module that enhances text prompts for Stable Diffusion to generate educational anatomical content suitable for 3D modeling and K-6 grade education.
+A plug-and-play Python module that enhances text prompts for Stable Diffusion to generate educational anatomical content suitable for 3D modeling and Grade School education.
 
 🎯 **Perfect for educators** who want to generate clean, age-appropriate anatomical illustrations  
 🔧 **Optimized for Google Colab** where most users run Stable Diffusion  
@@ -130,7 +130,7 @@ results = enhanced_pipe.generate_batch(
 
 ## Educational Focus
 
-This tool is specifically designed for **K-6 educational content**:
+This tool is specifically designed for **Grade school educational content**:
 
 - ✅ Age-appropriate anatomical terminology
 - ✅ Simplified, clean illustrations  
@@ -207,15 +207,3 @@ We welcome contributions! The vocabulary database is designed to be easily exten
 MIT License - see LICENSE file for details.
 
 The anatomical vocabulary database is licensed under CC-BY-SA 4.0 for educational use.
-
-## Support
-
-- 📖 **Documentation**: Full API docs coming soon
-- 🐛 **Issues**: Report bugs on GitHub  
-- 💬 **Discussions**: Educational use cases and feature requests
-
----
-
-**Made for educators, by educators** 🍎
-
-Perfect for creating anatomical reference images for science classes, 3D modeling projects, and educational materials. Safe, simple, and effective.
