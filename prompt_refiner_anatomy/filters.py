@@ -130,7 +130,7 @@ class EducationalFilter:
         self.valid_terms = set()
         for system_data in body_systems.values():
             self.valid_terms.update(term.lower() for term in system_data["organs"])
-            self.valid_terms.update(term.lower() for term in system_data["keywords"])
+            self.valid_terms.update(term.lower() for term in system_data["structures"])
         
         # Educational quality indicators
         self.educational_indicators = {
@@ -212,7 +212,7 @@ class EducationalFilter:
         prompt_lower = prompt.lower()
         
         # Check if any system-specific terms are present
-        system_terms = system_data["organs"] + system_data["keywords"]
+        system_terms = system_data["organs"] + system_data["structures"]
         return any(term.lower() in prompt_lower for term in system_terms)
     
     def get_age_appropriate_description(self, system_name: str) -> str:

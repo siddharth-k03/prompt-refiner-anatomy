@@ -84,10 +84,10 @@ class PromptRefiner:
                 if organ.lower() in prompt_lower:
                     detected.append(organ)
             
-            # Also check keywords
-            for keyword in system_data["keywords"]:
-                if keyword.lower() in prompt_lower:
-                    detected.append(keyword)
+            # Also check anatomical structures
+            for structure in system_data["structures"]:
+                if structure.lower() in prompt_lower:
+                    detected.append(structure)
         
         return list(set(detected))  # Remove duplicates
     
@@ -97,7 +97,7 @@ class PromptRefiner:
         
         for system_name, system_data in self.data["body_systems"].items():
             # Check if any detected terms belong to this system
-            system_terms = system_data["organs"] + system_data["keywords"]
+            system_terms = system_data["organs"] + system_data["structures"]
             if any(term.lower() in [t.lower() for t in system_terms] for term in detected_terms):
                 systems.append(system_name)
         
@@ -164,5 +164,5 @@ class PromptRefiner:
         """Get all supported anatomical terms organized by system."""
         result = {}
         for system_name, system_data in self.data["body_systems"].items():
-            result[system_name] = system_data["organs"] + system_data["keywords"]
+            result[system_name] = system_data["organs"] + system_data["structures"]
         return result
