@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-refiner-anatomy"
+version = "0.1.0"
+authors = [
+    {name = "Educational AI Tools", email = "contact@example.com"},
+]
+description = "Prompt refiner for anatomical education content in Stable Diffusion"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Education",
+    "Topic :: Multimedia :: Graphics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = ["stable-diffusion", "anatomy", "education", "ai", "prompt-engineering"]
+dependencies = [
+    # No external dependencies - pure Python for maximum compatibility
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "isort>=5.0",
+    "pre-commit>=3.0",
+]
+colab = [
+    "diffusers>=0.21.0",
+    "torch>=2.0.0",
+    "transformers>=4.25.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/username/prompt-refiner-anatomy"
+Documentation = "https://prompt-refiner-anatomy.readthedocs.io/"
+Repository = "https://github.com/username/prompt-refiner-anatomy.git"
+"Bug Tracker" = "https://github.com/username/prompt-refiner-anatomy/issues"
+
+[project.scripts]
+prompt-refiner-anatomy = "prompt_refiner_anatomy.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["prompt_refiner_anatomy*"]
+
+[tool.setuptools.package-data]
+"prompt_refiner_anatomy" = ["data/*.json"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"

@@ -1,0 +1,10 @@
+﻿{
+  "positive": "anatomical illustration of skeleton, medical textbook style, educational diagram, skeleton cross-section view, cutaway diagram, internal structure visible, for grade school science class, educational poster style, textbook illustration, scientific diagram, transparent background, clean topology, solid colors, technical drawing style",
+  "negative": "blood, gore, graphic, scary, disturbing, realistic skin texture, photographic, medical photography, surgical procedures, wounds, text, labels, annotations, arrows, numbers, watermarks, artistic style, painterly, sketchy, rough",
+  "detected_terms": [
+    "skeleton"
+  ],
+  "detected_systems": [
+    "skeletal"
+  ]
+}

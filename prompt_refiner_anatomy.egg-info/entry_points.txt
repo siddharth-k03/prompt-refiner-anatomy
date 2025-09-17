@@ -1,0 +1,2 @@
+[console_scripts]
+prompt-refiner-anatomy = prompt_refiner_anatomy.__main__:main

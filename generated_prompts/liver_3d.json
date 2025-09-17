@@ -1,0 +1,10 @@
+﻿{
+  "positive": "anatomical illustration of liver, medical textbook style, educational diagram, liver cross-section view, cutaway diagram, internal structure visible, for grade school science class, educational poster style, scientific diagram, simplified anatomy drawing, side view, orthographic view, no shadows, clean topology",
+  "negative": "blood, gore, graphic, scary, disturbing, realistic skin texture, photographic, medical photography, surgical procedures, wounds, text, labels, annotations, arrows, numbers, watermarks, artistic style, painterly, sketchy, rough",
+  "detected_terms": [
+    "liver"
+  ],
+  "detected_systems": [
+    "digestive"
+  ]
+}

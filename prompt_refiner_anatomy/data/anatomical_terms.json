@@ -1,0 +1,77 @@
+{
+  "body_systems": {
+    "skeletal": {
+      "description": "bones and joints that support the body",
+      "organs": ["skull", "spine", "ribs", "pelvis", "femur", "tibia", "humerus", "radius", "ulna"],
+      "keywords": ["bone", "skeleton", "joint", "calcium", "vertebrae"]
+    },
+    "circulatory": {
+      "description": "heart and blood vessels that move blood through the body",
+      "organs": ["heart", "arteries", "veins", "blood vessels"],
+      "keywords": ["blood", "circulation", "pump", "oxygen", "cardiovascular"]
+    },
+    "respiratory": {
+      "description": "lungs and airways that help us breathe",
+      "organs": ["lungs", "trachea", "bronchi", "diaphragm", "nose", "mouth"],
+      "keywords": ["breathing", "oxygen", "air", "inhale", "exhale"]
+    },
+    "nervous": {
+      "description": "brain and nerves that control the body",
+      "organs": ["brain", "spinal cord", "nerves", "neurons"],
+      "keywords": ["thinking", "control", "signals", "reflexes", "senses"]
+    },
+    "digestive": {
+      "description": "organs that break down food for energy",
+      "organs": ["stomach", "intestines", "liver", "esophagus", "mouth"],
+      "keywords": ["food", "digestion", "nutrients", "energy", "breakdown"]
+    },
+    "muscular": {
+      "description": "muscles that help us move",
+      "organs": ["biceps", "triceps", "quadriceps", "hamstrings", "heart muscle"],
+      "keywords": ["movement", "strength", "contraction", "exercise", "flexion"]
+    }
+  },
+  "enhancement_templates": {
+    "medical_illustration": "anatomical illustration of {organ}, medical textbook style, educational diagram",
+    "cross_section": "{organ} cross-section view, cutaway diagram, internal structure visible",
+    "system_overview": "human {system} system, simplified educational diagram, age-appropriate",
+    "3d_optimized": "orthographic projection, clean topology, neutral lighting, solid colors",
+    "educational_context": "for grade school science class, educational poster style"
+  },
+  "view_modifiers": [
+    "cross-section view",
+    "cutaway diagram",
+    "front view",
+    "side view", 
+    "transparent background",
+    "orthographic projection",
+    "anatomical position"
+  ],
+  "style_modifiers": [
+    "medical illustration style",
+    "educational diagram",
+    "textbook illustration", 
+    "scientific diagram",
+    "clean vector art style",
+    "simplified anatomy drawing"
+  ],
+  "3d_optimization_tags": [
+    "orthographic view",
+    "clean topology", 
+    "neutral lighting",
+    "solid colors",
+    "no shadows",
+    "flat lighting",
+    "technical drawing style"
+  ],
+  "forbidden_terms": [
+    "blood", "gore", "surgical", "dissection", "autopsy", "cadaver",
+    "wounds", "injuries", "disease", "pathology", "trauma", "pain",
+    "nude", "naked", "genitals", "reproductive", "sexual"
+  ],
+  "negative_prompt_additions": [
+    "blood", "gore", "graphic", "scary", "disturbing", "realistic skin texture",
+    "photographic", "medical photography", "surgical procedures", "wounds",
+    "text", "labels", "annotations", "arrows", "numbers", "watermarks"
+  ]
+}

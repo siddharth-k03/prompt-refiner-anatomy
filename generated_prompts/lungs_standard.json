@@ -1,0 +1,10 @@
+﻿{
+  "positive": "anatomical illustration of lungs, medical textbook style, educational diagram, for grade school science class, educational poster style, clean vector art style, simplified anatomy drawing, side view, flat lighting, clean topology, technical drawing style",
+  "negative": "blood, gore, graphic, scary, disturbing, realistic skin texture, photographic, medical photography, surgical procedures, wounds, text, labels, annotations, arrows, numbers, watermarks",
+  "detected_terms": [
+    "lungs"
+  ],
+  "detected_systems": [
+    "respiratory"
+  ]
+}
