@@ -57,7 +57,7 @@ class PromptRefiner:
         
         # Build enhanced positive prompt
         positive_prompt = self._build_positive_prompt(
-            cleaned_prompt, detected_terms, detected_systems, view_type
+            cleaned_prompt, detected_terms, detected_systems, view_type, focus
         )
         
         # Build negative prompt to avoid unwanted content
@@ -104,55 +104,87 @@ class PromptRefiner:
         return systems
     
     def _build_positive_prompt(self, original_prompt: str, detected_terms: List[str], 
-                             detected_systems: List[str], view_type: str) -> str:
-        """Build the enhanced positive prompt."""
+                             detected_systems: List[str], view_type: str, focus: Optional[str] = None) -> str:
+        """Build the enhanced positive prompt based on focus."""
         parts = []
         
-        # Start with base anatomical illustration style
-        if detected_terms:
-            primary_term = detected_terms[0]
-            base_template = self.data["enhancement_templates"]["medical_illustration"]
-            parts.append(base_template.format(organ=primary_term))
+        # Get primary organ/term
+        primary_term = detected_terms[0] if detected_terms else original_prompt
+        
+        # Use focus-specific templates if focus is specified
+        if focus and focus in self.data["focus_templates"]:
+            focus_config = self.data["focus_templates"][focus]
+            
+            # Start with focus-specific style prefix
+            parts.append(focus_config["style_prefix"].format(organ=primary_term))
+            
+            # Add focus-specific context
+            parts.append(focus_config["context"])
+            
+            # Add view-specific modifiers
+            if view_type == "cross_section" and detected_terms:
+                cross_section_template = self.data["enhancement_templates"]["cross_section"]
+                parts.append(cross_section_template.format(organ=detected_terms[0]))
+            elif view_type == "system_overview" and detected_systems:
+                system_template = self.data["enhancement_templates"]["system_overview"]
+                parts.append(system_template.format(system=detected_systems[0]))
+            
+            # Add focus-specific style modifiers (select 2-3)
+            style_modifiers = random.sample(focus_config["style_modifiers"], 
+                                          min(3, len(focus_config["style_modifiers"])))
+            parts.extend(style_modifiers)
+            
+            # Add focus-specific view modifier
+            view_modifier = random.choice(focus_config["view_modifiers"])
+            parts.append(view_modifier)
+            
+            # Add focus-specific optimization tags
+            optimization_tags = random.sample(focus_config["optimization_tags"], 
+                                            min(4, len(focus_config["optimization_tags"])))
+            parts.extend(optimization_tags)
+            
         else:
-            # Fallback for general anatomy
-            parts.append(f"anatomical illustration, {original_prompt}")
+            # Default behavior (no focus specified)
+            if detected_terms:
+                base_template = self.data["enhancement_templates"]["medical_illustration"]
+                parts.append(base_template.format(organ=primary_term))
+            else:
+                parts.append(f"anatomical illustration, {original_prompt}")
+            
+            # Add view-specific modifiers
+            if view_type == "cross_section" and detected_terms:
+                cross_section_template = self.data["enhancement_templates"]["cross_section"]
+                parts.append(cross_section_template.format(organ=detected_terms[0]))
+            elif view_type == "system_overview" and detected_systems:
+                system_template = self.data["enhancement_templates"]["system_overview"]
+                parts.append(system_template.format(system=detected_systems[0]))
+            
+            # Add educational context
+            parts.append(self.data["enhancement_templates"]["educational_context"])
+            
+            # Add default style modifiers
+            style_modifiers = random.sample(self.data["style_modifiers"], 
+                                          min(2, len(self.data["style_modifiers"])))
+            parts.extend(style_modifiers)
+            
+            # Add default view modifier
+            view_modifier = random.choice(self.data["view_modifiers"])
+            parts.append(view_modifier)
+            
+            # Add default 3D optimization tags
+            optimization_tags = random.sample(self.data["3d_optimization_tags"], 3)
+            parts.extend(optimization_tags)
         
-        # Add view-specific modifiers
-        if view_type == "cross_section" and detected_terms:
-            cross_section_template = self.data["enhancement_templates"]["cross_section"]
-            parts.append(cross_section_template.format(organ=detected_terms[0]))
-        elif view_type == "system_overview" and detected_systems:
-            system_template = self.data["enhancement_templates"]["system_overview"]
-            parts.append(system_template.format(system=detected_systems[0]))
-        
-        # Add educational context
-        parts.append(self.data["enhancement_templates"]["educational_context"])
-        
-        # Add style modifiers (randomly select 1-2)
-        style_modifiers = random.sample(self.data["style_modifiers"], 
-                                      min(2, len(self.data["style_modifiers"])))
-        parts.extend(style_modifiers)
-        
-        # Add view modifier
-        view_modifier = random.choice(self.data["view_modifiers"])
-        parts.append(view_modifier)
-        
-        # Add 3D optimization tags
-        optimization_tags = random.sample(self.data["3d_optimization_tags"], 3)
-        parts.extend(optimization_tags)
-        
-        # Join all parts
         return ", ".join(parts)
     
     def _build_negative_prompt(self, focus: Optional[str] = None) -> str:
-        """Build negative prompt to avoid unwanted content."""
+        """Build negative prompt to avoid unwanted content based on focus."""
         negative_parts = self.data["negative_prompt_additions"].copy()
         
         # Add focus-specific negative prompts
-        if focus == "education":
-            negative_parts.extend(["complex", "advanced", "technical jargon"])
-        elif focus == "3d_modeling":
-            negative_parts.extend(["artistic style", "painterly", "sketchy", "rough"])
+        if focus and focus in self.data["focus_negative_prompts"]:
+            focus_negatives = self.data["focus_negative_prompts"][focus]
+            negative_parts.extend(focus_negatives)
         
         return ", ".join(negative_parts)
     

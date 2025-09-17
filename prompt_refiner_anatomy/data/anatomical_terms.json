@@ -38,6 +38,29 @@
     "3d_optimized": "orthographic projection, clean topology, neutral lighting, solid colors",
     "educational_context": "for grade school science class, educational poster style"
   },
+  "focus_templates": {
+    "education": {
+      "style_prefix": "simple colorful diagram of {organ}, elementary school textbook style, child-friendly illustration",
+      "context": "kindergarten through 6th grade science class, bright cheerful colors, easy to understand",
+      "style_modifiers": ["cartoon style anatomy", "simplified drawing", "bright colors", "clean simple lines", "educational poster"],
+      "view_modifiers": ["front view", "simple perspective", "clear view", "basic diagram"],
+      "optimization_tags": ["colorful", "simple shapes", "bold outlines", "educational graphics"]
+    },
+    "3d_modeling": {
+      "style_prefix": "technical reference drawing of {organ}, 3D modeling reference sheet, orthographic views",
+      "context": "reference for 3D modeling and sculpting, multiple angles, technical accuracy",
+      "style_modifiers": ["technical drawing style", "blueprint style", "reference sheet", "orthographic projection", "CAD drawing style"],
+      "view_modifiers": ["orthographic projection", "front and side view", "technical drawing", "blueprint view"],
+      "optimization_tags": ["clean topology", "neutral lighting", "flat shading", "no shadows", "technical precision", "reference quality"]
+    },
+    "scientific": {
+      "style_prefix": "detailed scientific illustration of {organ}, medical journal quality, accurate anatomy",
+      "context": "peer-reviewed medical publication, scientific accuracy, professional quality",
+      "style_modifiers": ["medical journal illustration", "scientific accuracy", "detailed anatomy", "professional medical art", "precise illustration"],
+      "view_modifiers": ["anatomical position", "medical standard view", "scientific perspective", "detailed cross-section"],
+      "optimization_tags": ["high detail", "medical accuracy", "scientific precision", "professional quality"]
+    }
+  },
   "view_modifiers": [
     "cross-section view",
     "cutaway diagram",
@@ -73,5 +96,22 @@
     "blood", "gore", "graphic", "scary", "disturbing", "realistic skin texture",
     "photographic", "medical photography", "surgical procedures", "wounds",
     "text", "labels", "annotations", "arrows", "numbers", "watermarks"
-  ]
+  ],
+  "focus_negative_prompts": {
+    "education": [
+      "complex", "advanced", "technical jargon", "scary", "frightening", "realistic", 
+      "dark colors", "medical photography", "detailed anatomy", "professional medical", 
+      "scientific complexity", "adult content", "advanced terminology"
+    ],
+    "3d_modeling": [
+      "artistic style", "painterly", "sketchy", "rough", "hand drawn", "watercolor",
+      "impressionist", "abstract", "stylized", "cartoon", "anime", "manga", 
+      "bright colors", "colorful", "decorative", "ornate", "fancy", "artistic flair"
+    ],
+    "scientific": [
+      "cartoon", "childish", "simplified", "basic", "elementary", "colorful",
+      "bright", "cheerful", "cute", "child-friendly", "educational poster",
+      "simple drawing", "basic illustration", "kindergarten style"
+    ]
+  }
 }
