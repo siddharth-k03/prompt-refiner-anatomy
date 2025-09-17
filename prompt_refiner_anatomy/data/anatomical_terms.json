@@ -39,26 +39,26 @@
     "educational_context": "for grade school science class, educational poster style"
   },
   "focus_templates": {
-    "education": {
-      "style_prefix": "simple colorful diagram of {organ}, elementary school textbook style, child-friendly illustration",
-      "context": "kindergarten through 6th grade science class, bright cheerful colors, easy to understand",
-      "style_modifiers": ["cartoon style anatomy", "simplified drawing", "bright colors", "clean simple lines", "educational poster"],
-      "view_modifiers": ["front view", "simple perspective", "clear view", "basic diagram"],
-      "optimization_tags": ["colorful", "simple shapes", "bold outlines", "educational graphics"]
+    "3d_reconstruction": {
+      "style_prefix": "single {organ} on neutral background, anatomically accurate medical model",
+      "context": "3D reconstruction reference, photogrammetry ready, consistent lighting, isolated organ",
+      "style_modifiers": ["medical accuracy", "realistic anatomy", "clean isolation", "consistent form", "anatomical precision"],
+      "view_modifiers": ["centered view", "neutral angle", "clear perspective"],
+      "optimization_tags": ["white background", "even lighting", "no shadows", "isolated subject", "clean edges", "photogrammetry ready"]
     },
-    "3d_modeling": {
-      "style_prefix": "technical reference drawing of {organ}, 3D modeling reference sheet, orthographic views",
-      "context": "reference for 3D modeling and sculpting, multiple angles, technical accuracy",
-      "style_modifiers": ["technical drawing style", "blueprint style", "reference sheet", "orthographic projection", "CAD drawing style"],
-      "view_modifiers": ["orthographic projection", "front and side view", "technical drawing", "blueprint view"],
-      "optimization_tags": ["clean topology", "neutral lighting", "flat shading", "no shadows", "technical precision", "reference quality"]
+    "education": {
+      "style_prefix": "clear anatomical illustration of {organ}, educational medical diagram",
+      "context": "medical education, anatomically accurate, clean presentation",
+      "style_modifiers": ["medical illustration", "educational anatomy", "clear detail", "anatomical accuracy"],
+      "view_modifiers": ["anatomical position", "clear view"],
+      "optimization_tags": ["clean background", "medical precision", "educational clarity"]
     },
     "scientific": {
-      "style_prefix": "detailed scientific illustration of {organ}, medical journal quality, accurate anatomy",
-      "context": "peer-reviewed medical publication, scientific accuracy, professional quality",
-      "style_modifiers": ["medical journal illustration", "scientific accuracy", "detailed anatomy", "professional medical art", "precise illustration"],
-      "view_modifiers": ["anatomical position", "medical standard view", "scientific perspective", "detailed cross-section"],
-      "optimization_tags": ["high detail", "medical accuracy", "scientific precision", "professional quality"]
+      "style_prefix": "detailed anatomical specimen of {organ}, medical reference quality",
+      "context": "medical reference, anatomical specimen, scientific accuracy",
+      "style_modifiers": ["anatomical specimen", "medical reference", "scientific precision", "detailed anatomy"],
+      "view_modifiers": ["specimen view", "anatomical position"],
+      "optimization_tags": ["neutral background", "specimen lighting", "anatomical detail"]
     }
   },
   "view_modifiers": [
@@ -98,20 +98,20 @@
     "text", "labels", "annotations", "arrows", "numbers", "watermarks"
   ],
   "focus_negative_prompts": {
-    "education": [
-      "complex", "advanced", "technical jargon", "scary", "frightening", "realistic", 
-      "dark colors", "medical photography", "detailed anatomy", "professional medical", 
-      "scientific complexity", "adult content", "advanced terminology"
+    "3d_reconstruction": [
+      "multiple objects", "multiple organs", "collage", "montage", "diagram", "illustration", 
+      "cartoon", "artistic", "stylized", "decorative", "ornate", "fancy", "colorful background", 
+      "textured background", "pattern", "shadows", "dramatic lighting", "artistic lighting",
+      "text", "labels", "annotations", "arrows", "numbers", "watermarks", "logos", 
+      "drawing", "sketch", "painting", "artistic interpretation", "stylistic", "abstract"
     ],
-    "3d_modeling": [
-      "artistic style", "painterly", "sketchy", "rough", "hand drawn", "watercolor",
-      "impressionist", "abstract", "stylized", "cartoon", "anime", "manga", 
-      "bright colors", "colorful", "decorative", "ornate", "fancy", "artistic flair"
+    "education": [
+      "overly complex", "frightening", "disturbing", "dark", "scary",
+      "too detailed", "clinical", "graphic", "realistic textures"
     ],
     "scientific": [
-      "cartoon", "childish", "simplified", "basic", "elementary", "colorful",
-      "bright", "cheerful", "cute", "child-friendly", "educational poster",
-      "simple drawing", "basic illustration", "kindergarten style"
+      "cartoon", "childish", "simplified", "colorful", "bright colors",
+      "decorative", "artistic style", "non-medical"
     ]
   }
 }

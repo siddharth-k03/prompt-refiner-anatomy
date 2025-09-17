@@ -28,9 +28,9 @@ Examples:
   python -m prompt_refiner_anatomy --list-terms
 
 Focus options:
-  education     - Optimize for K-6 educational content
-  3d_modeling   - Optimize for 3D model reference
-  scientific    - Balance of education and technical accuracy
+  3d_reconstruction - Single organ on neutral background for 3D reconstruction
+  education        - Clear educational medical diagrams
+  scientific       - Detailed anatomical specimens for medical reference
 
 View types:
   standard       - Basic anatomical illustration
@@ -47,7 +47,7 @@ View types:
     
     parser.add_argument(
         "--focus",
-        choices=["education", "3d_modeling", "scientific"],
+        choices=["3d_reconstruction", "education", "scientific"],
         default=None,
         help="Focus area for optimization"
     )

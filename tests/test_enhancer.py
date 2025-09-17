@@ -71,12 +71,12 @@ class TestPromptRefiner:
         # Test education focus
         result_edu = self.refiner.enhance("heart", focus="education")
         negative_edu = result_edu['negative']
-        assert 'complex' in negative_edu
+        assert 'frightening' in negative_edu
         
-        # Test 3D modeling focus
-        result_3d = self.refiner.enhance("heart", focus="3d_modeling")
+        # Test 3D reconstruction focus
+        result_3d = self.refiner.enhance("heart", focus="3d_reconstruction")
         negative_3d = result_3d['negative']
-        assert 'artistic style' in negative_3d
+        assert 'multiple objects' in negative_3d
     
     def test_unknown_term(self):
         """Test enhancement of unknown anatomical term."""
